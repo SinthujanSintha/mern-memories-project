@@ -10,7 +10,7 @@ import Posts from "./components/Posts/Posts";
 
 
 const App = () => {
-    const classes = useStyles()
+    const classes = useStyles([])
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPosts())
