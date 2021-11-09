@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AppBar, Container, Grid, Grow, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "./redux/actions/post";
 import useStyles, { GridCustom } from "./style";
 import memories from "./images/mem2.jpg";
@@ -10,12 +10,13 @@ import Posts from "./components/Posts/Posts";
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
+  const isUpdateSuccess = useSelector(
+    (state) => state.postReducer.isUpdateSuccess
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
-    console.log("useEffectCalled");
-  }, [dispatch, currentId]);
-console.log("CurrentId",currentId);
+  }, [dispatch, isUpdateSuccess]);
   return (
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
@@ -47,7 +48,6 @@ console.log("CurrentId",currentId);
         </Container>
       </Grow>
     </Container>
-   
   );
 };
 
