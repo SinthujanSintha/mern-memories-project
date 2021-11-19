@@ -1,12 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import { styled } from "@mui/material/styles";
-import { Grid } from "@mui/material";
 
-export const GridCustom = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down('sm')]:{
-      flexDirection:"column-reverse"
-  }
-}));
 export default makeStyles((theme)=> ({
   appBar: {
     borderRadius: 15,
